@@ -1,0 +1,27 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: wisecow
+  labels:
+    app: wisecow
+spec:
+  selector:
+    matchLabels:
+      app: wisecow
+  template:
+    metadata:  
+      labels: 
+        app: wisecow
+    spec:
+      containers:
+        - name: wisecow
+          image: 'docker.io/sharon0706/wisecow'
+          ports:
+            - containerPort: 4499
+              protocol: TCP
+          env:
+          - name: SRVPORT
+            value: 4499
+          - name: RSPFILE
+            value: response
+        

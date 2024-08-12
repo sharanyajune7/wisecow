@@ -1,0 +1,17 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: wisecow
+  labels:
+    app: wisecow
+spec:
+  ports:
+    - name: 4499-tcp
+      protocol: TCP
+      port: 4499
+      targetPort: 4499
+  internalTrafficPolicy: Cluster
+  type: LoadBalancer
+  selector:
+    app: wisecow
+    
